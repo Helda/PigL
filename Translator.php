@@ -53,11 +53,22 @@ class Translator
     }
 
     /**
+     * Remove punction from word
+     * @param string $word
+     * @return string
+     */
+    private function removePunction($word)
+    {
+        return preg_replace("#[[:punct:]]#", "", $word);
+    }
+
+    /**
      * @param string $word
      * @return string
      */
     private function prepareTranslateString($word)
     {
+        $word = $this->removePunction($word);
         if($this->isVowel(substr($word, 0, 1)))
         {
             return $word . "-way";
