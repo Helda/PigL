@@ -17,6 +17,9 @@ class Translator
      */
     private $vowels = [];
 
+    /**
+     * @var bool
+     */
     private $state;
 
     public function __construct()
@@ -71,7 +74,7 @@ class Translator
         $word = $this->removePunction($word);
         if($this->isVowel(substr($word, 0, 1)))
         {
-            return $word . "-way";
+            return $word . "-ay";
         } else {
             return $this->prepareWord($word) . "ay";
         }
